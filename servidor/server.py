@@ -9,17 +9,31 @@ Ejemplos tomados de:
 
 # Módulo para el manejo de sockets
 import socket
+import json
 
 # Puerto por el cual se van a aceptar conexiones
+host = "192.168.0.3"
 puerto = 2040
+
 
 # Se hace la creación del socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socketServer:
 
-    socketServer.bind ((socket.gethostname(), puerto))
+    socketServer.bind ((host, puerto))
     socketServer.listen(5)
 
     conexion = socketServer.accept()
+
+    b = b''
+
+
+    while 1:
+        tmp = conexion.recv(1024)
+        b += tmp
+
+    d = json.loads(b.decode('UTF-8'))
+
+    print (d)
 
 
 
