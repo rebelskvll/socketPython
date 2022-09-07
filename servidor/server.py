@@ -13,8 +13,22 @@ import json
 HOST = "127.0.0.1"
 PORT = 65432
 
-def crearArchivo():
-    pass
+def crearArchivo(diccionario):
+
+    operacion = ""
+    
+    try:
+        with open ('registro.csv', 'a') as file:
+            file.write(diccionario["cuenta"] + "," + diccionario["valor"])
+        operacion = "OK"
+    except:
+        operacion = "NO OK"
+    finally:
+        return operacion
+
+
+
+    return operacion
 
 while True: 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -28,6 +42,6 @@ while True:
                 if not datos:
                     break
                 deserializado = json.loads(datos.decode('utf-8'))
-                
-                conn.sendall(b"test")
+                respuesta = crearArchivo(deserializado)
+                conn.sendall(str.encode(respuesta))
             
