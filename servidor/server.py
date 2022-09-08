@@ -19,7 +19,7 @@ def crearArchivo(diccionario):
     
     try:
         with open ('registro.csv', 'a') as file:
-            file.write(diccionario["cuenta"] + "," + diccionario["valor"])
+            file.write(diccionario["cuenta"] + "," + diccionario["valor"] + "\n")
         operacion = "OK"
     except:
         operacion = "NO OK"
