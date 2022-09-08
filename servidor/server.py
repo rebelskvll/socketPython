@@ -26,10 +26,6 @@ def crearArchivo(diccionario):
     finally:
         return operacion
 
-
-
-    return operacion
-
 while True: 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind((HOST, PORT))
@@ -44,4 +40,5 @@ while True:
                 deserializado = json.loads(datos.decode('utf-8'))
                 respuesta = crearArchivo(deserializado)
                 conn.sendall(str.encode(respuesta))
+                conn.close()
             
