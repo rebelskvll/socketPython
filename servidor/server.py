@@ -18,7 +18,7 @@ def crearArchivo(diccionario):
     operacion = ""
     
     try:
-        with open ('registro.csv', 'a') as file:
+        with open ('registro.txt', 'a') as file:
             file.write(diccionario["cuenta"] + "," + diccionario["valor"] + "\n")
         operacion = "OK"
     except:
@@ -40,5 +40,5 @@ while True:
                 deserializado = json.loads(datos.decode('utf-8'))
                 respuesta = crearArchivo(deserializado)
                 conn.sendall(str.encode(respuesta))
-                conn.close()
+        s.close()
             
