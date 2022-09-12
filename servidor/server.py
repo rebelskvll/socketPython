@@ -20,9 +20,8 @@ def crearArchivo(diccionario):
     operacion = ""
     
     try:
-        with open ('registro.txt', 'a') as file:
-            file.write(diccionario["cuenta"] + "," + 
-            diccionario["valor"] + "\n")
+        with open ('./registro.txt', 'a') as file:
+            file.write(diccionario["cuenta"] + "," + diccionario["valor"] + "\n")
         operacion = "OK"
     except:
         operacion = "NO OK"
