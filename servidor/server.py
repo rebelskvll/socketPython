@@ -11,7 +11,7 @@ import socket
 import json
 
 # Se define la dirección IP y el puerto en escucha
-HOST = "127.0.0.1"
+HOST = "192.168.0.120"
 PORT = 65432
 
 # Función para añadir el registro al archivo txt
@@ -34,7 +34,7 @@ while True:
         s.listen()
         conn, addr = s.accept()
         with conn:
-            print(f"Cliente {addr[0]} conectado")
+            print(f"Cliente conectado")
             while 1:
                 datos = conn.recv(1024)
                 if not datos:
