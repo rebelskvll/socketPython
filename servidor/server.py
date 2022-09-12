@@ -10,16 +10,19 @@
 import socket
 import json
 
+# Se define la dirección IP y el puerto en escucha
 HOST = "127.0.0.1"
 PORT = 65432
 
+# Función para añadir el registro al archivo txt
 def crearArchivo(diccionario):
 
     operacion = ""
     
     try:
         with open ('registro.txt', 'a') as file:
-            file.write(diccionario["cuenta"] + "," + diccionario["valor"] + "\n")
+            file.write(diccionario["cuenta"] + "," + 
+            diccionario["valor"] + "\n")
         operacion = "OK"
     except:
         operacion = "NO OK"
